@@ -8,16 +8,12 @@ function toString(carne, cerveja, refri){
 
     respCarne.innerHTML = 'São necessários ' + carne + 'kg de carne!';
     respCerveja.innerHTML = 'São necessários ' + cerveja + ' l de cerveja!';
-    respRefri.innerHTML = 'São necessários ' + refri + ' l de refri!';
+    respRefri.innerHTML = 'São necessários ' + refri + ' garrafas de 2l de refri!';
 }
 
 function notificacao(n1, n2, n3){
     if(n1 != NaN && n2 != 0 && n3 != NaN){
-        console.log(n1);
-        console.log(n2);
-        console.log(n3);
-        if(n1 && n2 && n3 > 0 ){
-            console.log('teste');
+        if(n1 > 0 && n2 > 0 && n3 > 0 ){
             return true;
         }else{
             alert('Digite os valores corretamente!');
@@ -26,6 +22,10 @@ function notificacao(n1, n2, n3){
         alert('Digite todos os valores!');
     };
 }
+
+function convertGarrafasRefri(n1){
+    return (n1 / 2);
+};
 
 function calcular(){
     let pessoas = document.getElementById('pessoas');
@@ -36,29 +36,20 @@ function calcular(){
     let nCriancas = parseFloat((criancas.value) / 2);
     let nHoras = parseInt(horas.value);
 
-    if(notificacao(nPessoas, nCriancas, nHoras)){
-        console.log('true');
-    }else{
-        console.log('false');
+    if(notificacao(nPessoas, nCriancas, nHoras) == true){
+        if(nHoras < 6){
+            let calcCarne = (((440 * nPessoas) + (440 * nCriancas))/1000);
+            // Já em litros
+            let calcCerveja = (1.2 * nPessoas);
+            let calcRefri = Math.round(((1 * nPessoas) + (1 * nCriancas)));
+            toString(calcCarne, calcCerveja, convertGarrafasRefri(calcRefri));
+
+        }else{
+            let calcCarne = (((650 * nPessoas) + (650 * nCriancas))/1000);
+            // Já em litros
+            let calcCerveja = (2.0 * nPessoas);
+            let calcRefri = Math.round(((1.5 * nPessoas) + (1.5 * nCriancas)));
+            toString(calcCarne, calcCerveja, convertGarrafasRefri(calcRefri));
+        };
     }
-    
-    
-
-    // if(teste == true){
-
-        // if(nHoras < 6){
-        //     let calcCarne = (((440 * nPessoas) + (440 * nCriancas))/1000);
-        //     // Já em litros
-        //     let calcCerveja = (1.2 * nPessoas);
-        //     let calcRefri = Math.round(((1 * nPessoas) + (1 * nCriancas)));
-        //     toString(calcCarne, calcCerveja, calcRefri);
-
-        // }else{
-        //     let calcCarne = (((650 * nPessoas) + (650 * nCriancas))/1000);
-        //     // Já em litros
-        //     let calcCerveja = (2.0 * nPessoas);
-        //     let calcRefri = Math.round(((1.5 * nPessoas) + (1.5 * nCriancas)));
-        //     toString(calcCarne, calcCerveja, calcRefri);
-        // }
-    // }
 }
