@@ -1,0 +1,80 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(../assets/images/background.png);
+    background-size: cover;
+}
+
+.caixa{
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.816);;
+    margin: auto;
+    text-align: center;
+    border: .5px black solid;
+    border-radius: 30px;
+}
+#inputBox{
+    margin-top: 60px;
+    padding-bottom: 50px;
+}
+#logo{
+    width: 100%;
+    margin: 0px;
+}
+.input{
+    font-size: 1vw;
+    padding: 0px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 36px;
+    width: 60%;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 0 4px black;
+}
+.input:focus{
+    outline: none;
+}
+#btn{
+    height: 60px;
+    width: 60%;
+    border: none;
+    border-radius: 6px;
+    background-color: burlywood;
+    font-weight: 700;
+    font-size: 1.5vw;
+    box-shadow: 0 0 10px black;
+}
+#btn:hover{
+    cursor: pointer;
+    border: 2px brown solid;
+}
+#caixaResp{
+    font-size: 1vw;
+    display: none;
+    padding: 40px 0px;
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        height: 100%;
+        width: 100%;
+    }
+   
+    .caixa{
+        width: 90%;
+        /* background-color: black; */
+    }
+    .input{
+        font-size: 1.6vw;
+    }
+    #btn{
+        font-size: 2.5vw;
+    }
+    #caixaResp{
+        font-size: 2.5vw;
+    }
+}
